@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "react",
+    "rootDirs": ["src", "tests"],
+    "types": ["jest", "node"],
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"],
+    },
+    "allowJs": true,
+    "resolveJsonModule": true,
+  },
+  "include": ["src", "tests"]
+}
