@@ -11,9 +11,10 @@
     "baseUrl": "src",
     "paths": {
       "@/*": ["*"],
+      "@/tests/*": ["../tests/*"]
     },
     "allowJs": true,
     "resolveJsonModule": true,
   },
-  "include": ["src", "tests"]
+  "include": ["src", "tests", "stories"]
 }
