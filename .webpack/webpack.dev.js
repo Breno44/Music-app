@@ -10,6 +10,20 @@ module.exports = merge(common, {
         test: /\.ts(x?)$/,
         loader: 'ts-loader',
         exclude: /node_modules/,
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        exclude: /node_modules/,
+        use: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              bypassOnDebug: true,
+              disable: true
+            }
+          }
+        ]
       }
     ],
   },
