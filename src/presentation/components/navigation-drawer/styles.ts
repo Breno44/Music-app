@@ -11,17 +11,20 @@ export const Container = styled.div`
 `
 
 export const Content = styled.div`
-  width: 80%;
+  width: 100%;
   height: 100%;
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  padding: 20px 0;
+  padding: 20px 0 20px 15%;
 `
 
-export const Logo = styled.img``
+export const Logo = styled.img`
+  width: 120px;
+  height: 120px;
+`
 
 export const ContentSession = styled.div`
   width: 100%;
@@ -31,7 +34,7 @@ export const ContentSession = styled.div`
   align-items: start;
 
   margin-bottom: 36px;
-  gap: 10px;
+  gap: 15px;
 `
 
 export const Title = styled.h3`
