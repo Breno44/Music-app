@@ -1,3 +1,5 @@
+import { type ArtistModel } from './artist-model'
+
 export type TrackModel = {
   id: number
   readable: boolean
@@ -18,7 +20,5 @@ export type TrackModel = {
   preview: string
   bpm: number
   gain: number
-  artist: {
-    name: string
-  }
+  artist: ArtistModel
 }

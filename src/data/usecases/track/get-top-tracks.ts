@@ -1,4 +1,4 @@
-import { type TopTracks } from '@/domain/usecases/top-tracks'
+import { type TopTracks } from '@/domain/usecases/track/top-tracks'
 import { type HttpClient } from '../../protocols/http'
 import { AxiosHttpClient } from '@/infra/http/axios-http-client'
 
@@ -14,7 +14,7 @@ export class GetTopTracks implements TopTracks {
       method: 'get'
     })
 
-    return httpResponse.body?.tracks?.data
+    return httpResponse.body?.data
   }
 }
 
@@ -22,4 +22,4 @@ export namespace GetTopTracks {
   export type Model = TopTracks.Model
 }
 
-export const LoadGetTopTracks = new GetTopTracks('https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/tracks', new AxiosHttpClient())
+export const LoadGetTopTracks = new GetTopTracks('http://localhost:3001/tracks', new AxiosHttpClient())
