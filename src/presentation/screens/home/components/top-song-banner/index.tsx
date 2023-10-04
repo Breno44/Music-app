@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { ButtonFavorite } from '@/presentation/components/button-favorite'
 import { ArtistName, ButtonPlay, Container, ContentActions, ContentArtist, ContentSong, IconContent, ImageArtist, SubtitleContent, TitleSong } from './styles'
 import PlayIcon from '../../../../assets/icons/play_icon.svg'
 import { type Track } from '@/domain/usecases/track/track'
 import { LoadGetTopTracks } from '@/data/usecases/track/get-top-tracks'
 import { Loader } from '@/presentation/components/loader/loader'
+import { MusicContext } from '@/presentation/contexts/music-context'
 
 export function TopSongBanner (): any {
+  const { setTrack } = useContext(MusicContext)
   const [topTrack, setTopTrack] = useState<Track.Model>()
   const [isLoading, setIsLoading] = useState(false)
 
@@ -33,7 +35,7 @@ export function TopSongBanner (): any {
           <TitleSong>{topTrack?.title}</TitleSong>
           <ArtistName>{topTrack?.artist.name}</ArtistName>
           <ContentActions>
-            <ButtonPlay>
+            <ButtonPlay onClick={() => { setTrack(topTrack) }}>
               <IconContent src={PlayIcon} />
               Play Now
             </ButtonPlay>

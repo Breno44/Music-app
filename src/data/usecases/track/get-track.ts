@@ -1,4 +1,4 @@
-import { type Track } from '@/domain/usecases/track'
+import { type Track } from '@/domain/usecases/track/track'
 import { type HttpClient } from '../../protocols/http'
 import { AxiosHttpClient } from '@/infra/http/axios-http-client'
 
@@ -24,4 +24,4 @@ export namespace GetTrack {
   export type Model = Track.Model
 }
 
-export const LoadGetTrack = new GetTrack('https://cors-anywhere.herokuapp.com/https://api.deezer.com/track', new AxiosHttpClient())
+export const LoadGetTrack = new GetTrack('http://localhost:3001/track', new AxiosHttpClient())

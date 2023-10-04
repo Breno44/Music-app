@@ -35,6 +35,14 @@ export const SubtitleContent = styled.h2`
 `
 
 export const TitleSong = styled.h1`
+  width: 100%;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  text-align: center;
+
   font-size: 38px;
   margin-bottom: 8px;
 `

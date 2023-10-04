@@ -24,6 +24,10 @@ export const ContentCenter = styled.div`
   padding: 24px;
 
   gap: 25px;
+
+  position: relative;
+
+  overflow-y: auto;
 `
 
 export const TitleContent = styled.h1`
