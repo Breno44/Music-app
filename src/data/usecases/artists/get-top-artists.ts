@@ -22,5 +22,4 @@ export namespace GetTopArtists {
   export type Model = TopArtists.Model
 }
 
-// export const LoadGetTopArtists = new GetTopArtists('http://localhost:3001/artists', new AxiosHttpClient())
-export const LoadGetTopArtists = new GetTopArtists('https://api.deezer.com/chart/0/artists', new AxiosHttpClient())
+export const LoadGetTopArtists = new GetTopArtists('http://localhost:3001/artists', new AxiosHttpClient())

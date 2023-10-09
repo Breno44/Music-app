@@ -22,5 +22,4 @@ export namespace GetTopTracks {
   export type Model = TopTracks.Model
 }
 
-// export const LoadGetTopTracks = new GetTopTracks('http://localhost:3001/tracks', new AxiosHttpClient())
-export const LoadGetTopTracks = new GetTopTracks('https://api.deezer.com/chart/0/tracks', new AxiosHttpClient())
+export const LoadGetTopTracks = new GetTopTracks('http://localhost:3001/tracks', new AxiosHttpClient())
