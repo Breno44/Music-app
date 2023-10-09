@@ -8,7 +8,7 @@ import { Loader } from '@/presentation/components/loader/loader'
 import { MusicContext } from '@/presentation/contexts/music-context'
 
 export function TopSongBanner (): any {
-  const { setTrack } = useContext(MusicContext)
+  const { setTrack, setTracks } = useContext(MusicContext)
   const [topTrack, setTopTrack] = useState<Track.Model>()
   const [isLoading, setIsLoading] = useState(false)
 
@@ -17,6 +17,7 @@ export function TopSongBanner (): any {
     const topTracks = await LoadGetTopTracks.getTopTracks()
 
     setTopTrack(topTracks[0])
+    setTracks(topTracks)
     setIsLoading(false)
   }
 

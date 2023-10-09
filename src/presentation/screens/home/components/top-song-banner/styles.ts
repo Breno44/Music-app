@@ -41,7 +41,7 @@ export const TitleSong = styled.h1`
   overflow: hidden;
   text-overflow: ellipsis;
 
-  text-align: center;
+  text-align: left;
 
   font-size: 38px;
   margin-bottom: 8px;

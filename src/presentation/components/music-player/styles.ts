@@ -12,7 +12,7 @@ export const Container = styled.div`
   border-radius: 12px;
 
   position: sticky;
-  bottom: 25px;
+  bottom: 15px;
 `
 
 export const ContentLeft = styled.div`

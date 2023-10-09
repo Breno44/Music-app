@@ -4,6 +4,8 @@ import { type TrackModel } from '@/domain/models/track-model'
 interface MusicContextData {
   track: TrackModel
   setTrack: (track: TrackModel) => void
+  tracks: TrackModel[]
+  setTracks: (track: TrackModel[]) => void
 }
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
@@ -16,11 +18,14 @@ interface MusicProviderProps {
 export function MusicProvider (props: MusicProviderProps): React.ReactElement {
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
   const [track, setTrack] = useState<TrackModel>({} as TrackModel)
+  const [tracks, setTracks] = useState<TrackModel[]>([])
 
   return (
     <MusicContext.Provider value={{
       track,
-      setTrack
+      setTrack,
+      tracks,
+      setTracks
     }}>
       {props.children}
     </MusicContext.Provider>

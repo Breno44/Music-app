@@ -59,12 +59,16 @@ export function MusicPlayer (): any {
   return (
     <Container>
       <ContentLeft>
-        <ImageArtist src={currentTrack?.artistPicture} />
-        <ContentTrack>
-          <TitleTrack>{currentTrack?.trackName}</TitleTrack>
-          <ArtistName>{currentTrack?.artistName}</ArtistName>
-        </ContentTrack>
-        <ButtonFavorite />
+        {currentTrack?.artistPicture && (
+          <>
+            <ImageArtist src={currentTrack?.artistPicture} />
+            <ContentTrack>
+              <TitleTrack>{currentTrack?.trackName}</TitleTrack>
+              <ArtistName>{currentTrack?.artistName}</ArtistName>
+            </ContentTrack>
+            <ButtonFavorite />
+          </>
+        )}
       </ContentLeft>
       <ContentRight>
         <Content>
@@ -87,7 +91,7 @@ export function MusicPlayer (): any {
             percent={(currentTime / (audioRef.current ? audioRef.current.duration : 1)) * 100}
           />
         </ContentProgressBar>
-        <audio src={currentTrack.trackName} ref={audioRef} style={{ display: 'none' }} />
+        <audio src={currentTrack.preview} ref={audioRef} style={{ display: 'none' }} />
       </ContentRight>
     </Container>
   )
