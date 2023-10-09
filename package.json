@@ -6,6 +6,7 @@
   "scripts": {
     "backend": "node ./src/backend/server.js",
     "dev:base": "webpack-dev-server --config .webpack/webpack.dev.js",
+    "build": "webpack --config .webpack/webpack.dev.js",
     "dev": "npm run dev:base -- --open",
     "test": "jest --passWithNoTests --no-cache --runInBand",
     "lint": "eslint ./src ./tests --ext .ts",
