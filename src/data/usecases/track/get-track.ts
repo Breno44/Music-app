@@ -24,4 +24,4 @@ export namespace GetTrack {
   export type Model = Track.Model
 }
 
-export const LoadGetTrack = new GetTrack('http://localhost:3001/track', new AxiosHttpClient())
+export const LoadGetTrack = new GetTrack('https://backend-music-app.vercel.app/track', new AxiosHttpClient())

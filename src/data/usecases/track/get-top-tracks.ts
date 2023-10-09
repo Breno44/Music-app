@@ -22,4 +22,4 @@ export namespace GetTopTracks {
   export type Model = TopTracks.Model
 }
 
-export const LoadGetTopTracks = new GetTopTracks('http://localhost:3001/tracks', new AxiosHttpClient())
+export const LoadGetTopTracks = new GetTopTracks('https://backend-music-app.vercel.app/tracks', new AxiosHttpClient())
