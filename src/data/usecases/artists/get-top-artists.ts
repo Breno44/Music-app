@@ -10,7 +10,7 @@ export class GetTopArtists implements TopArtists {
 
   async getTopArtists (params: TopArtists.Params): Promise<TopArtists.Model> {
     const httpResponse = await this.httpClient.request({
-      url: `${this.url}/${params.limit}`,
+      url: `${this.url}?limit=${params.limit}`,
       method: 'get'
     })
 
@@ -22,4 +22,5 @@ export namespace GetTopArtists {
   export type Model = TopArtists.Model
 }
 
-export const LoadGetTopArtists = new GetTopArtists('http://localhost:3001/artists', new AxiosHttpClient())
+// export const LoadGetTopArtists = new GetTopArtists('http://localhost:3001/artists', new AxiosHttpClient())
+export const LoadGetTopArtists = new GetTopArtists('https://api.deezer.com/chart/0/artists', new AxiosHttpClient())
