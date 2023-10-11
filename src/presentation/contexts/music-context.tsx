@@ -18,7 +18,7 @@ interface MusicProviderProps {
 export function MusicProvider (props: MusicProviderProps): React.ReactElement {
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
   const [track, setTrack] = useState<TrackModel>({} as TrackModel)
-  const [tracks, setTracks] = useState<TrackModel[]>([])
+  const [tracks, setTracks] = useState<TrackModel[]>(JSON.parse(sessionStorage.getItem('@topTracks')) ?? [])
 
   return (
     <MusicContext.Provider value={{

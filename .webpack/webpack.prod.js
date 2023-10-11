@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common');
 module.exports = merge(common, {
-  mode: 'development',
+  mode: 'production',
   module: {
     rules: [
       {
@@ -12,34 +12,36 @@ module.exports = merge(common, {
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
-        exclude: /node_modules/,
         use: [
           'file-loader',
           {
             loader: 'image-webpack-loader',
             options: {
-              bypassOnDebug: true,
-              disable: true
+              mozjpeg: {
+                progressive: true
+              },
+              optipng: {
+                enabled: false
+              },
+              pngquant: {
+                quality: [0.65, 0.9],
+                speed: 4
+              },
+              gifsicle: {
+                interlaced: false
+              },
+              webp: {
+                quality: 75
+              }
             }
           }
         ]
       }
     ],
   },
-  devtool: 'inline-source-map',
-  devServer: {
-    historyApiFallback: true,
-    devMiddleware: {
-      writeToDisk: true,
-    },
-    static: {
-      directory: './public',
-    },
-    port: 3000,
-  },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './template.dev.html',
+      template: './template.prod.html',
     }),
   ],
 });

@@ -1,18 +1,25 @@
-import React, { useEffect, useState } from 'react'
-import { Container, ContentArtists, ContentTitle, Title, ActionButton, ArtistCard, ArtistPicture, ArtistName } from './styles'
+import React, { useContext, useEffect, useState } from 'react'
+
 import { LoadGetTopArtists } from '@/data/usecases/artists/get-top-artists'
-import { type TopArtists as TopArtistsType } from '@/domain/usecases/artist/top-artists'
 import { Loader } from '@/presentation/components/loader/loader'
+import { Container, ContentArtists, ContentTitle, Title, ActionButton, ArtistCard, ArtistPicture, ArtistName } from './styles'
+import { ArtistContext } from '@/presentation/contexts/artist-context'
 
 export function TopArtists (): any {
-  const [artists, setArtists] = useState<TopArtistsType.Model>()
+  const { setArtists, artists } = useContext(ArtistContext)
   const [isLoading, setIsLoading] = useState(false)
 
   async function loadArtists (): Promise<void> {
     setIsLoading(true)
-    const artists = await LoadGetTopArtists.getTopArtists({ limit: 6 })
+    if (artists.length > 0) {
+      setIsLoading(false)
+      return
+    }
 
-    setArtists(artists)
+    const topArtists = await LoadGetTopArtists.getTopArtists({ limit: 10 })
+
+    setArtists(topArtists)
+    sessionStorage.setItem('@topArtists', JSON.stringify(topArtists))
     setIsLoading(false)
   }
 
@@ -31,7 +38,7 @@ export function TopArtists (): any {
         <ActionButton>Show All</ActionButton>
       </ContentTitle>
       <ContentArtists>
-        {(artists ?? []).map(artist => {
+        {(artists.slice(0, 6) ?? []).map(artist => {
           return (
             <>
             <ArtistCard>

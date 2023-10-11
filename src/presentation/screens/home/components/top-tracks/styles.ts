@@ -43,7 +43,13 @@ export const ImageArtist = styled.img`
   border-radius: 12px;
 `
 
-export const NameTrack = styled.div``
+export const NameTrack = styled.div`
+  width: 75%;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`
 
 export const ContentArtist = styled.div`
   width: 200px;
@@ -60,6 +66,12 @@ export const IconContent = styled.img`
 `
 
 export const NameArtist = styled.p`
+  width: 85%;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   color: #cececd;
 `
 

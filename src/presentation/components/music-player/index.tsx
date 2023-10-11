@@ -48,6 +48,12 @@ export function MusicPlayer (): any {
   }, [])
 
   useEffect(() => {
+    setCurrentTime(0)
+
+    if (isPlaying) pauseMusic()
+  }, [track])
+
+  useEffect(() => {
     setCurrentTrack({
       preview: track.preview ?? '',
       artistName: track.artist?.name ?? '',
@@ -72,7 +78,7 @@ export function MusicPlayer (): any {
       </ContentLeft>
       <ContentRight>
         <Content>
-          <ContentPlay onClick={isPlaying ? pauseMusic : playMusic }>
+          <ContentPlay onClick={isPlaying ? pauseMusic : playMusic } id='togglePlayButton'>
             <Icon src={ isPlaying ? PauseIcon : PlayIcon } />
           </ContentPlay>
         </Content>
