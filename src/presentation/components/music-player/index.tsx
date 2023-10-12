@@ -72,7 +72,7 @@ export function MusicPlayer (): any {
               <TitleTrack>{currentTrack?.trackName}</TitleTrack>
               <ArtistName>{currentTrack?.artistName}</ArtistName>
             </ContentTrack>
-            <ButtonFavorite />
+            <ButtonFavorite musicId={String(track?.id) ?? ''} />
           </>
         )}
       </ContentLeft>

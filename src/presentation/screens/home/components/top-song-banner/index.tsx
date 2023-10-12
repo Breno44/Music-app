@@ -7,7 +7,7 @@ import { useTopSongBanner } from './use-top-song-banner'
 
 export function TopSongBanner (): any {
   const { isLoading, setTrack, topTrack } = useTopSongBanner()
-
+  console.log(topTrack)
   return (
     <Container>
       {isLoading
@@ -23,7 +23,7 @@ export function TopSongBanner (): any {
               <IconContent src={PlayIcon} />
               Play Now
             </ButtonPlay>
-            <ButtonFavorite />
+            {!!topTrack?.id && <ButtonFavorite musicId={String(topTrack.id)} />}
           </ContentActions>
         </ContentSong>
         <ContentArtist>
