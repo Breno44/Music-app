@@ -1,12 +1,13 @@
 import React, { useContext } from 'react'
 import { ButtonFavorite } from '@/presentation/components/button-favorite'
-import ArtistIcon from '@/presentation/assets/icons/user-circle-gray_icon.svg'
-import TimeIcon from '@/presentation/assets/icons/time_icon.svg'
-import PlayIcon from '@/presentation/assets/icons/play_icon.svg'
 
 import { ActionButtons, ButtonPlay, Container, Content, ContentArtist, ContentTrack, Duration, IconContent, ImageArtist, NameArtist, NameTrack, Position, Time, Title } from './styles'
 import { MusicContext } from '@/presentation/contexts/music-context'
 import { type Track } from '@/domain/usecases/track/track'
+
+import ArtistIcon from '../../../../assets/icons/user-circle-gray_icon.svg'
+import TimeIcon from '../../../../assets/icons/time_icon.svg'
+import PlayIcon from '../../../../assets/icons/play_icon.svg'
 
 export function TopTracks (): React.ReactElement {
   const { setTrack, tracks } = useContext(MusicContext)

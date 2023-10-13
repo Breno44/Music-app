@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react'
-import HeartIcon from '@/presentation/assets/icons/heart_icon.svg'
-import HeartIconFill from '@/presentation/assets/icons/heart_fill_icon.svg'
 import { Container, IconContent } from './styles'
 import { MusicContext } from '@/presentation/contexts/music-context'
+
+import HeartIcon from '../../assets/icons/heart_icon.svg'
+import HeartIconFill from '../../assets/icons/heart_fill_icon.svg'
 
 type ButtonFavoriteProps = {
   musicId: string

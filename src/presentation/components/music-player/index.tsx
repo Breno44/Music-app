@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Container, Content, ContentPlay, ContentProgressBar, Icon, ProgressBar, ContentLeft, ContentRight, ImageArtist, ContentTrack, TitleTrack, ArtistName } from './styles'
 
-import PlayIcon from '@/presentation/assets/icons/play_icon.svg'
-import PauseIcon from '@/presentation/assets/icons/pause_icon.svg'
 import { MusicContext } from '@/presentation/contexts/music-context'
 import { ButtonFavorite } from '../button-favorite'
+
+import PlayIcon from '../../assets/icons/play_icon.svg'
+import PauseIcon from '../../assets/icons/pause_icon.svg'
 
 export function MusicPlayer (): any {
   const { track } = useContext(MusicContext)

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Container, Content, ContentSession, Logo, Title } from './styles'
-import LogoPng from '@/presentation/assets/images/logo.png'
 
 import { Subtitle } from './components/subtitle'
 import HomeIcon from '../../assets/icons/house_icon.svg'
+import LogoPng from '../../assets/images/logo.png'
 import FavoritesIcon from '../../assets/icons/heart_icon.svg'
 import SongsIcon from '../../assets/icons/music-library_icon.svg'
 import RadioIcon from '../../assets/icons/music-party_icon.svg'
