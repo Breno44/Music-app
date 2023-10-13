@@ -23,12 +23,12 @@ export const Content = styled.div`
 `
 
 export const Position = styled.h3`
-  width: 50px;
+  width: 10%;
   font-size: 18px;
 `
 
 export const ContentTrack = styled.div`
-  width: 250px;
+  width: 35%;
   height: 100%;
 
   display: flex;
@@ -49,10 +49,14 @@ export const NameTrack = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  @media (max-width: 1920px) {
+    max-width: 200px;
+  }
 `
 
 export const ContentArtist = styled.div`
-  width: 200px;
+  width: 25%;
   height: 100%;
 
   display: flex;
@@ -76,7 +80,7 @@ export const NameArtist = styled.p`
 `
 
 export const Duration = styled.div`
-  width: 130px;
+  width: 15%;
   height: 100%;
 
   display: flex;
@@ -91,7 +95,7 @@ export const Time = styled.p`
 `
 
 export const ActionButtons = styled.div`
-  width: 150px;
+  width: 15%;
 
   display: flex;
   justify-content: space-between;

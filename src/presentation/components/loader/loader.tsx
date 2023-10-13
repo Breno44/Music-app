@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { type ReactElement } from 'react'
 import { LoaderContainer } from './styles'
 
-export function Loader (): any {
+export function Loader (): ReactElement {
   return <LoaderContainer />
 }

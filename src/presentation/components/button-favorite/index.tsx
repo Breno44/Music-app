@@ -1,20 +1,16 @@
-import React, { useContext, useState } from 'react'
-import { Container, IconContent } from './styles'
-import { MusicContext } from '@/presentation/contexts/music-context'
+import React, { type ReactElement } from 'react'
 
 import HeartIcon from '../../assets/icons/heart_icon.svg'
 import HeartIconFill from '../../assets/icons/heart_fill_icon.svg'
+import { Container, IconContent } from './styles'
+import { useButtonFavorite } from './use-button-favorite'
 
-type ButtonFavoriteProps = {
+type Props = {
   musicId: string
 }
 
-export function ButtonFavorite ({ musicId }: ButtonFavoriteProps): any {
-  const { handleFavorite, favoriteTracks } = useContext(MusicContext)
-  const [favorite, setFavorite] = useState(!!favoriteTracks.find(track => track === musicId))
-  const iconStyle = {
-    filter: 'brightness(0) saturate(100%) invert(62%) sepia(61%) saturate(4291%) hue-rotate(335deg) brightness(88%) contrast(89%)'
-  }
+export function ButtonFavorite ({ musicId }: Props): ReactElement {
+  const { favorite, setFavorite, handleFavorite, iconStyle } = useButtonFavorite({ musicId })
 
   return (
     <Container onClick={() => {

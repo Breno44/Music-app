@@ -1,13 +1,15 @@
-import React from 'react'
-import { ButtonFavorite } from '@/presentation/components/button-favorite'
-import { ArtistName, ButtonPlay, Container, ContentActions, ContentArtist, ContentSong, IconContent, ImageArtist, SubtitleContent, TitleSong } from './styles'
-import PlayIcon from '../../../../assets/icons/play_icon.svg'
-import { Loader } from '@/presentation/components/loader/loader'
-import { useTopSongBanner } from './use-top-song-banner'
+import React, { type ReactElement } from 'react'
 
-export function TopSongBanner (): any {
-  const { isLoading, setTrack, topTrack } = useTopSongBanner()
-  console.log(topTrack)
+import { ButtonFavorite } from '@/presentation/components/button-favorite'
+import { Loader } from '@/presentation/components/loader/loader'
+
+import { useTopSongBanner } from './use-top-song-banner'
+import PlayIcon from '../../../../assets/icons/play_icon.svg'
+import { ArtistName, ButtonPlay, Container, ContentActions, ContentArtist, ContentSong, IconContent, ImageArtist, SubtitleContent, TitleSong } from './styles'
+
+export function TopSongBanner (): ReactElement {
+  const { isLoading, handleTrack, topTrack } = useTopSongBanner()
+
   return (
     <Container>
       {isLoading
@@ -19,7 +21,7 @@ export function TopSongBanner (): any {
           <TitleSong>{topTrack?.title}</TitleSong>
           <ArtistName>{topTrack?.artist.name}</ArtistName>
           <ContentActions>
-            <ButtonPlay onClick={() => { setTrack(topTrack) }}>
+            <ButtonPlay onClick={() => { handleTrack(topTrack) }}>
               <IconContent src={PlayIcon} />
               Play Now
             </ButtonPlay>

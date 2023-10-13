@@ -3,7 +3,7 @@ import { type TrackModel } from '@/domain/models/track-model'
 
 interface MusicContextData {
   track: TrackModel
-  setTrack: (track: TrackModel) => void
+  handleTrack: (track: TrackModel) => void
   tracks: TrackModel[]
   setTracks: (track: TrackModel[]) => void
   favoriteTracks: string[]
@@ -19,7 +19,7 @@ interface MusicProviderProps {
 
 export function MusicProvider (props: MusicProviderProps): React.ReactElement {
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-  const [track, setTrack] = useState<TrackModel>({} as TrackModel)
+  const [track, setTrack] = useState<TrackModel>(JSON.parse(localStorage.getItem('@lastTrack')) ?? {} as TrackModel)
   const [tracks, setTracks] = useState<TrackModel[]>(JSON.parse(sessionStorage.getItem('@topTracks')) ?? [])
   const [favoriteTracks, setFavoriteTracks] = useState<string[]>(JSON.parse(localStorage.getItem('@favoriteSongs')) ?? [])
 
@@ -36,10 +36,15 @@ export function MusicProvider (props: MusicProviderProps): React.ReactElement {
     setFavoriteTracks(newArray)
   }
 
+  function handleTrack (track: TrackModel): void {
+    localStorage.setItem('@lastTrack', JSON.stringify(track))
+    setTrack(track)
+  }
+
   const values = useMemo(() => (
     {
       track,
-      setTrack,
+      handleTrack,
       tracks,
       setTracks,
       favoriteTracks,
@@ -47,7 +52,7 @@ export function MusicProvider (props: MusicProviderProps): React.ReactElement {
     }
   ), [
     track,
-    setTrack,
+    handleTrack,
     tracks,
     setTracks,
     favoriteTracks,

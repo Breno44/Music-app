@@ -1,17 +1,18 @@
 import { useContext, useEffect, useState } from 'react'
+
 import { LoadGetTopTracks } from '@/data/usecases/track/get-top-tracks'
 import { type TrackModel } from '@/domain/models/track-model'
 import { type Track } from '@/domain/usecases/track/track'
 import { MusicContext } from '@/presentation/contexts/music-context'
 
 type Return = {
-  setTrack: (track: TrackModel) => void
+  handleTrack: (track: TrackModel) => void
   topTrack: Track.Model
   isLoading: boolean
 }
 
 export function useTopSongBanner (): Return {
-  const { setTrack, setTracks, tracks } = useContext(MusicContext)
+  const { handleTrack, setTracks, tracks } = useContext(MusicContext)
   const [topTrack, setTopTrack] = useState<Track.Model>()
   const [isLoading, setIsLoading] = useState(false)
 
@@ -36,7 +37,7 @@ export function useTopSongBanner (): Return {
   }, [])
 
   return {
-    setTrack,
+    handleTrack,
     topTrack,
     isLoading
   }

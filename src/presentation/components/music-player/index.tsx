@@ -1,67 +1,14 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { type ReactElement } from 'react'
 import { Container, Content, ContentPlay, ContentProgressBar, Icon, ProgressBar, ContentLeft, ContentRight, ImageArtist, ContentTrack, TitleTrack, ArtistName } from './styles'
 
-import { MusicContext } from '@/presentation/contexts/music-context'
 import { ButtonFavorite } from '../button-favorite'
 
 import PlayIcon from '../../assets/icons/play_icon.svg'
 import PauseIcon from '../../assets/icons/pause_icon.svg'
+import { useMusicPlayer } from './use-music-player'
 
-export function MusicPlayer (): any {
-  const { track } = useContext(MusicContext)
-  const audioRef = useRef<HTMLAudioElement>(null)
-  const [currentTime, setCurrentTime] = useState(0)
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [currentTrack, setCurrentTrack] = useState({
-    preview: '',
-    artistPicture: '',
-    artistName: '',
-    trackName: ''
-  })
-
-  function playMusic (): void {
-    if (currentTime >= audioRef.current.duration) {
-      setCurrentTime(0)
-    }
-
-    audioRef.current.play()
-    setIsPlaying(true)
-  }
-
-  function pauseMusic (): void {
-    audioRef.current.pause()
-    setIsPlaying(false)
-  }
-
-  const handleTimeUpdate = (): void => {
-    if (audioRef.current) {
-      setCurrentTime(audioRef.current.currentTime)
-    }
-  }
-
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.addEventListener('timeupdate', handleTimeUpdate)
-      audioRef.current.addEventListener('ended', () => {
-        setIsPlaying(false)
-      })
-    }
-  }, [])
-
-  useEffect(() => {
-    setCurrentTime(0)
-
-    if (isPlaying) pauseMusic()
-  }, [track])
-
-  useEffect(() => {
-    setCurrentTrack({
-      preview: track.preview ?? '',
-      artistName: track.artist?.name ?? '',
-      artistPicture: track.artist?.picture ?? '',
-      trackName: track.title ?? ''
-    })
-  }, [track])
+export function MusicPlayer (): ReactElement {
+  const { audioRef, currentTrack, isPlaying, pauseMusic, playMusic, track, currentTime, setCurrentTime } = useMusicPlayer()
 
   return (
     <Container>
@@ -95,7 +42,7 @@ export function MusicPlayer (): any {
                 setCurrentTime(audioRef.current.currentTime)
               }
             }}
-            percent={(currentTime / (audioRef.current ? audioRef.current.duration : 1)) * 100}
+            percent={((currentTime / (audioRef.current ? audioRef.current.duration : 1)) * 100) ?? 0}
           />
         </ContentProgressBar>
         <audio src={currentTrack.preview} ref={audioRef} style={{ display: 'none' }} />

@@ -1,32 +1,23 @@
-import React, { useContext } from 'react'
-import { ButtonFavorite } from '@/presentation/components/button-favorite'
+import React from 'react'
 
-import { ActionButtons, ButtonPlay, Container, Content, ContentArtist, ContentTrack, Duration, IconContent, ImageArtist, NameArtist, NameTrack, Position, Time, Title } from './styles'
-import { MusicContext } from '@/presentation/contexts/music-context'
 import { type Track } from '@/domain/usecases/track/track'
+import { ButtonFavorite } from '@/presentation/components/button-favorite'
+import { Loader } from '@/presentation/components/loader/loader'
 
 import ArtistIcon from '../../../../assets/icons/user-circle-gray_icon.svg'
 import TimeIcon from '../../../../assets/icons/time_icon.svg'
 import PlayIcon from '../../../../assets/icons/play_icon.svg'
+import { useTopTracks } from './use-top-tracks'
+import { ActionButtons, ButtonPlay, Container, Content, ContentArtist, ContentTrack, Duration, IconContent, ImageArtist, NameArtist, NameTrack, Position, Time, Title } from './styles'
 
 export function TopTracks (): React.ReactElement {
-  const { setTrack, tracks } = useContext(MusicContext)
-
-  function secondsToMinutes (seconds: number): string {
-    const minutes = Math.floor(seconds / 60)
-    const secondsRemaining = seconds % 60
-
-    const minutesFormatted = minutes < 10 ? `0${minutes}` : minutes
-    const secondsFormatted = secondsRemaining < 10 ? `0${secondsRemaining}` : secondsRemaining
-
-    return `${minutesFormatted}:${secondsFormatted}`
-  }
+  const { handleTrack, secondsToMinutes, tracks } = useTopTracks()
 
   return (
     <Container>
       <Title>Top Hits</Title>
         {tracks.length <= 0
-          ? 'Loading...'
+          ? <Loader />
           : tracks.map((track: Track.Model, index: number) => {
             return (
             <Content key={track?.id}>
@@ -45,7 +36,7 @@ export function TopTracks (): React.ReactElement {
               </Duration>
               <ActionButtons>
                 <ButtonFavorite musicId={String(track?.id)} />
-                <ButtonPlay onClick={() => { setTrack(track ?? {} as any) }}>
+                <ButtonPlay onClick={() => { handleTrack(track ?? {} as any) }}>
                     <IconContent src={PlayIcon} />
                 </ButtonPlay>
               </ActionButtons>

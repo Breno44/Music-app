@@ -1,5 +1,4 @@
-import React from 'react'
-import { Container, Content, ContentSession, Logo, Title } from './styles'
+import React, { type ReactElement } from 'react'
 
 import { Subtitle } from './components/subtitle'
 import HomeIcon from '../../assets/icons/house_icon.svg'
@@ -8,8 +7,9 @@ import FavoritesIcon from '../../assets/icons/heart_icon.svg'
 import SongsIcon from '../../assets/icons/music-library_icon.svg'
 import RadioIcon from '../../assets/icons/music-party_icon.svg'
 import ArtistsIcon from '../../assets/icons/user-circle_icon.svg'
+import { Container, Content, ContentSession, Logo, Title } from './styles'
 
-export function NavigationDrawer (): any {
+export function NavigationDrawer (): ReactElement {
   return (
     <Container>
       <Content>
