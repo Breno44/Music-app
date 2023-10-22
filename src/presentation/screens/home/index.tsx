@@ -7,6 +7,7 @@ import { TopSongBanner } from './components/top-song-banner'
 import { TopArtists } from './components/top-artists'
 import { TopTracks } from './components/top-tracks'
 import { Container, Content, ContentCenter, TitleContent } from './styles'
+import { Search } from './components/search'
 
 export function Home (): ReactElement {
   return (
@@ -20,6 +21,7 @@ export function Home (): ReactElement {
           <TopTracks />
           <MusicPlayer />
         </ContentCenter>
+        <Search />
       </Content>
     </Container>
   )

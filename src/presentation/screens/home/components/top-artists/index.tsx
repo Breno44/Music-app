@@ -1,6 +1,7 @@
 import React, { type ReactElement } from 'react'
 
 import { Loader } from '@/presentation/components/loader/loader'
+
 import { Container, ContentArtists, ContentTitle, Title, ActionButton, ArtistCard, ArtistPicture, ArtistName } from './styles'
 import { useTopArtists } from './use-top-artists'
 
