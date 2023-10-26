@@ -17,7 +17,7 @@ export function ButtonFavorite ({ musicId }: Props): ReactElement {
       handleFavorite(musicId)
       setFavorite(!favorite)
     }}>
-      <IconContent src={ favorite ? HeartIconFill : HeartIcon} style={iconStyle} />
+      <IconContent alt={favorite ? 'Icon red heart' : 'Icon heart'} src={ favorite ? HeartIconFill : HeartIcon} data-testid='heartIcon' style={iconStyle} />
     </Container>
   )
 }

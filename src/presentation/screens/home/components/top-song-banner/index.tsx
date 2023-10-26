@@ -2,7 +2,8 @@ import React, { type ReactElement } from 'react'
 
 import { ButtonFavorite } from '@/presentation/components/button-favorite'
 import { Loader } from '@/presentation/components/loader/loader'
-import PlayIcon from '@/presentation/assets/icons/play_icon.svg'
+
+import PlayIcon from '../../../../assets/icons/play_icon.svg'
 
 import { ArtistName, ButtonPlay, Container, ContentActions, ContentArtist, ContentSong, IconContent, ImageArtist, SubtitleContent, TitleSong } from './styles'
 import { useTopSongBanner } from './use-top-song-banner'

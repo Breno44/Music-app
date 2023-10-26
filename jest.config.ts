@@ -22,7 +22,6 @@ const config: Config = {
   // collectCoverage: false,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  // collectCoverageFrom: undefined,
 
   // The directory where Jest should output its coverage files
   // coverageDirectory: undefined,
@@ -91,10 +90,10 @@ const config: Config = {
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
-    '@/(.*)': '<rootDir>/../src/$1',
+    '@/(.*)': '<rootDir>./src/$1',
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-      '<rootDir>/../__mocks__/fileMock.js',
-    '^test-utils$': '<rootDir>/config/test-utils.tsx'
+      '<rootDir>./__mocks__/fileMock.js',
+    '^test-utils$': '<rootDir>/tests/config/test-utils.tsx'
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
@@ -128,7 +127,7 @@ const config: Config = {
   // restoreMocks: false,
 
   // The root directory that Jest should scan for tests and modules within
-  rootDir: "tests",
+  rootDir: ".",
 
   // A list of paths to directories that Jest should use to search for files in
   // roots: [
@@ -143,7 +142,7 @@ const config: Config = {
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   setupFilesAfterEnv: [
-    '<rootDir>/config/setup-env.ts'
+    '<rootDir>/tests/config/setup-env.ts'
   ],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
@@ -185,6 +184,10 @@ const config: Config = {
   transform: {
     ".+\\.(js|jsx|ts|tsx)$": "@swc/jest",
   },
+
+  collectCoverageFrom: [
+    '<rootDir>/src/**/*.{ts,tsx}'
+  ],
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [

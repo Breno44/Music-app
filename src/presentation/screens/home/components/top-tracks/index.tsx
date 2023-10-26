@@ -3,9 +3,10 @@ import React from 'react'
 import { type Track } from '@/domain/usecases/track/track'
 import { ButtonFavorite } from '@/presentation/components/button-favorite'
 import { Loader } from '@/presentation/components/loader/loader'
-import ArtistIcon from '@/presentation/assets/icons/user-circle-gray_icon.svg'
-import TimeIcon from '@/presentation/assets/icons/time_icon.svg'
-import PlayIcon from '@/presentation/assets/icons/play_icon.svg'
+
+import ArtistIcon from '../../../../assets/icons/user-circle-gray_icon.svg'
+import TimeIcon from '../../../../assets/icons/time_icon.svg'
+import PlayIcon from '../../../../assets/icons/play_icon.svg'
 
 import { ActionButtons, ButtonPlay, Container, Content, ContentArtist, ContentTrack, Duration, IconContent, ImageArtist, NameArtist, NameTrack, Position, Time, Title } from './styles'
 import { useTopTracks } from './use-top-tracks'

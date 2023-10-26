@@ -8,6 +8,7 @@
     "build": "webpack --config .webpack/webpack.prod.js",
     "dev": "npm run dev:base -- --open",
     "test": "jest --passWithNoTests --no-cache --runInBand",
+    "test:ci": "npm test -- --coverage",
     "lint": "eslint ./src ./tests --ext .ts",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
