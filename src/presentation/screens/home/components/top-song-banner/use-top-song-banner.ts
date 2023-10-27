@@ -18,18 +18,26 @@ export function useTopSongBanner (): Return {
 
   async function loadTopTrack (): Promise<void> {
     setIsLoading(true)
-    if (tracks.length > 0) {
-      setTopTrack(tracks[0])
+
+    try {
+      if (tracks.length > 0) {
+        setTopTrack(tracks[0])
+        setIsLoading(false)
+        return
+      }
+
+      const topTracks = await LoadGetTopTracks.getTopTracks()
+
+      setTopTrack(topTracks[0])
+      setTracks(topTracks)
+      sessionStorage.setItem('@topTracks', JSON.stringify(topTracks))
+    } catch (e) {
+      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+      setTopTrack({} as Track.Model)
+      setTracks([])
+    } finally {
       setIsLoading(false)
-      return
     }
-
-    const topTracks = await LoadGetTopTracks.getTopTracks()
-
-    setTopTrack(topTracks[0])
-    setTracks(topTracks)
-    sessionStorage.setItem('@topTracks', JSON.stringify(topTracks))
-    setIsLoading(false)
   }
 
   useEffect(() => {

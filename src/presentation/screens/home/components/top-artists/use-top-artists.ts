@@ -17,16 +17,22 @@ export function useTopArtists (): Return {
 
   async function loadArtists (): Promise<void> {
     setIsLoading(true)
-    if (artists.length > 0) {
+
+    try {
+      if (artists.length > 0) {
+        setIsLoading(false)
+        return
+      }
+
+      const topArtists = await LoadGetTopArtists.getTopArtists({ limit: 10 })
+
+      setArtists(topArtists)
+      sessionStorage.setItem('@topArtists', JSON.stringify(topArtists))
+    } catch (e) {
+      setArtists([])
+    } finally {
       setIsLoading(false)
-      return
     }
-
-    const topArtists = await LoadGetTopArtists.getTopArtists({ limit: 10 })
-
-    setArtists(topArtists)
-    sessionStorage.setItem('@topArtists', JSON.stringify(topArtists))
-    setIsLoading(false)
   }
 
   useEffect(() => {

@@ -13,7 +13,7 @@ export function TopSongBanner (): ReactElement {
 
   return (
     <Container>
-      {isLoading
+      {isLoading || !topTrack
         ? <Loader />
         : (
         <>

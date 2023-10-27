@@ -10,7 +10,7 @@ export function TopArtists (): ReactElement {
 
   return (
     <Container>
-      {isLoading
+      {isLoading || !artists
         ? <Loader />
         : (
         <>
