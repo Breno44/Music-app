@@ -15,7 +15,7 @@ export function Search (): ReactElement {
     <Container>
       <ContentSearch>
         <InputSearchBox>
-          <IconContent src={SearchIcon} />
+          <IconContent alt="Search icon" src={SearchIcon} />
           <InputSearch placeholder='Search library' onChange={e => { setValueSearch(e.target.value) }}/>
         </InputSearchBox>
       </ContentSearch>
@@ -31,7 +31,7 @@ export function Search (): ReactElement {
                   <ItemType>{item.type}</ItemType>
                 </ItemInfos>
               </ItemContent>
-              <IconContent src={RightArrowIcon} />
+              <IconContent alt="Right arrow icon" src={RightArrowIcon} />
             </Item>
           )
         })}

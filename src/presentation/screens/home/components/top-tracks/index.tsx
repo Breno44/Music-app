@@ -28,11 +28,11 @@ export function TopTracks (): React.ReactElement {
                 <NameTrack>{track?.title}</NameTrack>
               </ContentTrack>
               <ContentArtist>
-                <IconContent src={ArtistIcon} />
+                <IconContent alt="Artist icon" src={ArtistIcon} />
                 <NameArtist>{track?.artist.name}</NameArtist>
               </ContentArtist>
               <Duration>
-                <IconContent src={TimeIcon} />
+                <IconContent alt="Timer icon" src={TimeIcon} />
                 <Time>{secondsToMinutes(track?.duration ?? 0)}</Time>
               </Duration>
               <ActionButtons>
