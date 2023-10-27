@@ -14,6 +14,12 @@ type Return = {
     artistName: string
     trackName: string
   }
+  setCurrentTrack: (track: {
+    preview: string
+    artistPicture: string
+    artistName: string
+    trackName: string
+  }) => void
   playMusic: () => void
   pauseMusic: () => void
   isPlaying: boolean
@@ -81,6 +87,7 @@ export function useMusicPlayer (): Return {
     currentTime,
     setCurrentTime,
     currentTrack,
+    setCurrentTrack,
     playMusic,
     pauseMusic,
     isPlaying

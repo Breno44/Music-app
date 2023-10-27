@@ -15,7 +15,7 @@ export function MusicPlayer (): ReactElement {
       <ContentLeft>
         {currentTrack?.artistPicture && (
           <>
-            <ImageArtist src={currentTrack?.artistPicture} />
+            <ImageArtist alt="Image artist" src={currentTrack?.artistPicture} />
             <ContentTrack>
               <TitleTrack>{currentTrack?.trackName}</TitleTrack>
               <ArtistName>{currentTrack?.artistName}</ArtistName>
@@ -26,8 +26,8 @@ export function MusicPlayer (): ReactElement {
       </ContentLeft>
       <ContentRight>
         <Content>
-          <ContentPlay onClick={isPlaying ? pauseMusic : playMusic } id='togglePlayButton'>
-            <Icon src={ isPlaying ? PauseIcon : PlayIcon } />
+          <ContentPlay onClick={isPlaying ? pauseMusic : playMusic } id='togglePlayButton' data-testid='togglePlayButton'>
+            <Icon alt={isPlaying ? 'Stop music' : 'Start music'} src={ isPlaying ? PauseIcon : PlayIcon } data-testid='toggleMusic' />
           </ContentPlay>
         </Content>
         <ContentProgressBar>
