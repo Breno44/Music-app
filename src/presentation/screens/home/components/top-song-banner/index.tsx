@@ -23,14 +23,14 @@ export function TopSongBanner (): ReactElement {
           <ArtistName>{topTrack?.artist.name}</ArtistName>
           <ContentActions>
             <ButtonPlay onClick={() => { handleTrack(topTrack) }}>
-              <IconContent src={PlayIcon} />
+              <IconContent alt="Play icon" src={PlayIcon} />
               Play Now
             </ButtonPlay>
             {!!topTrack?.id && <ButtonFavorite musicId={String(topTrack.id)} />}
           </ContentActions>
         </ContentSong>
         <ContentArtist>
-        <ImageArtist src={topTrack?.artist.picture_medium} />
+        <ImageArtist alt="Top artist picture" src={topTrack?.artist.picture_medium} />
         </ContentArtist>
         </>
           )}

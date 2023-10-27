@@ -24,7 +24,7 @@ export function TopTracks (): React.ReactElement {
             <Content key={track?.id}>
               <Position># {index + 1}</Position>
               <ContentTrack>
-                <ImageArtist src={track?.artist?.picture} />
+                <ImageArtist alt={`${track?.artist?.name} picture`} src={track?.artist?.picture} />
                 <NameTrack>{track?.title}</NameTrack>
               </ContentTrack>
               <ContentArtist>
@@ -38,7 +38,7 @@ export function TopTracks (): React.ReactElement {
               <ActionButtons>
                 <ButtonFavorite musicId={String(track?.id)} />
                 <ButtonPlay onClick={() => { handleTrack(track ?? {} as any) }}>
-                    <IconContent src={PlayIcon} />
+                    <IconContent alt="Play icon" src={PlayIcon} />
                 </ButtonPlay>
               </ActionButtons>
             </Content>

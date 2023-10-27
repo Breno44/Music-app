@@ -15,7 +15,7 @@ export function Subtitle ({ name, icon, routerName }: Props): ReactElement {
   return (
     <Container onClick={() => { navigate(routerName) }}>
       <Content correctRoute={correctRoute}>
-        <IconContent src={icon} style={correctRoute ? iconStyle : {}} />
+        <IconContent alt={`${name} icon`} src={icon} style={correctRoute ? iconStyle : {}} />
         {name}
       </Content>
       {correctRoute && <IndicatorActive />}

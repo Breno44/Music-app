@@ -25,7 +25,7 @@ export function Search (): ReactElement {
           return (
             <Item key={item.id}>
               <ItemContent>
-                <ItemPicture src={item.type === 'track' ? item?.artist?.picture : item.type === 'artist' ? item?.picture : item?.cover_small } />
+                <ItemPicture alt={`${item.type} picture`} src={item.type === 'track' ? item?.artist?.picture : item.type === 'artist' ? item?.picture : item?.cover_small } />
                 <ItemInfos>
                   <ItemName>{item.type === 'artist' ? item.name : item.title}</ItemName>
                   <ItemType>{item.type}</ItemType>

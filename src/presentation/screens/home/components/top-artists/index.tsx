@@ -23,7 +23,7 @@ export function TopArtists (): ReactElement {
           return (
             <>
             <ArtistCard>
-              <ArtistPicture src={artist?.picture} />
+              <ArtistPicture alt="Artist picture" src={artist?.picture} />
               <ArtistName>{artist?.name}</ArtistName>
             </ArtistCard>
             </>

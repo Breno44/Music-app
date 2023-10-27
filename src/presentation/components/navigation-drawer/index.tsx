@@ -13,7 +13,7 @@ export function NavigationDrawer (): ReactElement {
   return (
     <Container>
       <Content>
-        <Logo src={LogoPng} />
+        <Logo alt="SongCrafted logo" src={LogoPng} />
         <ContentSession>
           <Title>Menu</Title>
           <Subtitle name='Home' icon={HomeIcon} routerName='' />
