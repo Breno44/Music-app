@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { type Track } from '@/domain/usecases/track/track'
+import { type TrackModel } from '@/domain/models/track-model'
 import { ButtonFavorite } from '@/presentation/components/button-favorite'
 import { Loader } from '@/presentation/components/loader/loader'
 
@@ -16,11 +16,13 @@ export function TopTracks (): React.ReactElement {
 
   return (
     <Container>
-      <Title>Top Hits</Title>
-        {tracks.length <= 0
-          ? <Loader />
-          : tracks.map((track: Track.Model, index: number) => {
-            return (
+      {tracks.length <= 0
+        ? <Loader />
+        : (
+            <>
+              <Title>Top Hits</Title>
+        {tracks.map((track: TrackModel, index: number) => {
+          return (
             <Content key={track?.id}>
               <Position># {index + 1}</Position>
               <ContentTrack>
@@ -42,8 +44,11 @@ export function TopTracks (): React.ReactElement {
                 </ButtonPlay>
               </ActionButtons>
             </Content>
-            )
-          })}
+          )
+        })}
+            </>
+          )
+    }
     </Container>
   )
 }

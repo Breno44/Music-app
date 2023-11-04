@@ -13,4 +13,5 @@ export const LoaderContainer = styled.div`
   width: 40px;
   height: 40px;
   animation: ${spin} 1s linear infinite;
+  align-self: center;
 `
