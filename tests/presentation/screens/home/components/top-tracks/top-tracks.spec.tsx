@@ -1,5 +1,5 @@
 import React, { type ReactElement } from 'react'
-import { type RenderOptions } from 'test-utils'
+import { type RenderOptions, fireEvent } from 'test-utils'
 
 import { TopTracks } from '@/presentation/screens/home/components/top-tracks'
 import { MusicContext } from '@/presentation/contexts/music-context'
@@ -41,5 +41,15 @@ describe('TopTracks test', () => {
     expect(music1).toBeTruthy()
     expect(music2).toBeTruthy()
     expect(music3).toBeTruthy()
+  })
+
+  it('should be able to call handleTrack', async () => {
+    const component = customRender(<TopTracks />)
+
+    const playButton = await component.findByTestId('playButton 0')
+
+    fireEvent.click(playButton)
+
+    expect(playButton).toBeTruthy()
   })
 })

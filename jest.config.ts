@@ -186,7 +186,11 @@ const config: Config = {
   },
 
   collectCoverageFrom: [
-    '<rootDir>/src/**/*.{ts,tsx}'
+    '<rootDir>/src/**/*.{ts,tsx}',
+    '!<rootDir>/src/main/**/*.{ts,tsx}',
+    '!<rootDir>/src/domain/**/*.{ts,tsx}',
+    '!<rootDir>/src/presentation/assets/*.{ts,tsx}',
+    '!<rootDir>/src/data/protocols/**/*.{ts,tsx}'
   ],
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation

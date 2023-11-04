@@ -39,7 +39,7 @@ export function TopTracks (): React.ReactElement {
               </Duration>
               <ActionButtons>
                 <ButtonFavorite musicId={String(track?.id)} />
-                <ButtonPlay onClick={() => { handleTrack(track ?? {} as any) }}>
+                <ButtonPlay data-testid={`playButton ${index}`} onClick={() => { handleTrack(track ?? {} as any) }}>
                     <IconContent alt="Play icon" src={PlayIcon} />
                 </ButtonPlay>
               </ActionButtons>

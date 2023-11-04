@@ -19,10 +19,10 @@ export function TopSongBanner (): ReactElement {
         <>
         <ContentSong>
           <SubtitleContent>Trending New Hits</SubtitleContent>
-          <TitleSong>{topTrack?.title}</TitleSong>
-          <ArtistName>{topTrack?.artist.name}</ArtistName>
+          <TitleSong data-testid='trackName'>{topTrack?.title}</TitleSong>
+          <ArtistName data-testid='artistName'>{topTrack?.artist.name}</ArtistName>
           <ContentActions>
-            <ButtonPlay onClick={() => { handleTrack(topTrack) }}>
+            <ButtonPlay data-testid='playButton' onClick={() => { handleTrack(topTrack) }}>
               <IconContent alt="Play icon" src={PlayIcon} />
               Play Now
             </ButtonPlay>
